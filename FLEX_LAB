@@ -1,0 +1,105 @@
+/* Some CSS Setup - nothing to do with flexbox */
+html {
+  box-sizing: border-box;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  font-family: sans-serif;
+  margin: 0;
+}
+
+a {
+  color: white;
+  font-weight: 100;
+  letter-spacing: 2px;
+  text-decoration: none;
+  background: #495057;
+  padding:20px 5px;
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  transition:all .5s;
+}
+
+a:hover {
+  background:rgba(73,80,87,0.6);
+}
+
+ul {
+  display: flex; /*flex|inline-flex*/
+  flex-direction: row; /*row(default)|row-reverse|column-reverse*/
+  justify-content: space-between;
+  flex-wrap: wrap; /*wrap|wrap-reverse|nowrap;*/
+  align-items: center; /*stretch | flex-start | flex-end | center | baseline;*/
+  align-content: stretch; /*flex-start | flex-end | center | space-between | space-around | stretch;*/
+  justify-content: space-evenly; /*flex-start(default)\end|space-between\around\evenly|center;*/
+  max-width: 1000px;
+  margin: 0 auto;
+  padding:50px;
+}
+
+/*SHORT-HAND: flex-flow: row[-reverse] wrap; flex-direction flex-wrap*/
+/* flex-flow: row nowrap; /* flex-direction flex-wrap */
+
+/* Flex Container */
+.flex-nav ul {
+  flex-direction: row;
+  /* flex-shrink: 1;
+  flex-basis: auto;
+  align-self: auto; /* center|baseline|stretch*/
+  border:1px solid black;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile First Design Goes Here */
+li {
+  flex: 1 1 100%;
+}
+
+/* .social {
+justify-content: space-between;
+} */
+
+/* Change when viewport is at least 500px wide */
+@media all and (min-width:500px) {
+
+  li {
+    flex-shrink: 1;
+    flex-basis: 50%;
+    align-self: baseline; /* center|baseline|stretch*/
+    margin: auto;
+    /* flex: 0 1 auto; /*flex-grow flex-shrink flex-basis*/
+  }
+}
+
+/* Change when viewport is at least 1000px wide */
+@media all and (min-width:1000px) {
+
+  li {
+    flex: 1 1 100%;
+    flex-shrink: 1;
+    /* flex-basis: auto; */
+    margin: auto;
+    /* flex: 0 1 auto; /*flex-grow flex-shrink flex-basis*/
+  }
+}
+
+.social {
+  flex: 1 1 100%;
+  flex-flow: row nowrap;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: stretch;
+  flex-shrink: 1;
+  flex-basis: 25%;
+  align-self: baseline; /* center|baseline|stretch*/
+  margin: auto;
+  /* flex: 0 1 auto; /*flex-grow flex-shrink flex-basis*/
+}
